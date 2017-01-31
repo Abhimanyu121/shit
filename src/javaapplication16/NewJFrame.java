@@ -88,6 +88,18 @@ try
 Class.forName("java.sql.DriverManager");
 Connection con=(Connection)
         DriverManager.getConnection("jdbc:mysql://localhost/blah","root","root");
+Statement stmt=con.createStatement();
+String qry="select * from blah;";
+ResultSet rs=stmt.executeQuery(qry);
+while(rs.next())
+{
+String p=rs.getString("w");
+String q=rs.getString("x");
+String r=rs.getString("y");
+String s=rs.getString("z");
+t1.addRow(new Object[] {p,q,r,s} );
+
+}
 
 }
 catch(Exception e)
