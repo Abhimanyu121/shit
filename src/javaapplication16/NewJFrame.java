@@ -5,6 +5,10 @@
  */
 package javaapplication16;
 
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Abhimanyu
@@ -44,6 +48,11 @@ public class NewJFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(t);
 
         jButton1.setText("table data");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,6 +80,19 @@ public class NewJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+DefaultTableModel t1=(DefaultTableModel)t.getModel();  
+try
+{
+Class.forName("java.sql.DriverManager");
+Connection con=(Connection)
+        DriverManager.getConnection("jdbc:mysql://localhost/blah","root","root");
+
+}
+catch(Exception e)
+{JOptionPane.showMessageDialog(null,e.getMessage());}// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
